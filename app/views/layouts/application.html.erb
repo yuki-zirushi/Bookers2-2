@@ -15,7 +15,7 @@
 
   <body>
     
-    <% if user_signed_in? %>
+    
     
       <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -25,6 +25,24 @@
             </a>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="navbar-nav ml-auto">
+                
+                <% if user_signed_in? %>
+                
+                <li>
+                  <a class="fas fa-home nav-link text-light" href="/"> Home</a>
+                </li>
+                <li>
+                  <a class="fas fa-link nav-link text-light" href="/users"> Users</a>
+                </li>
+                <li>
+                  <a class="fas fa-user-plus nav-link text-light" href="/books"> Books</a>
+                </li>
+                <li>
+                  <a class="fas fa-sign-in-alt nav-link text-light" rel="nofollow" date-method="delete" href="/users/sign_out"> logout</a>
+                </li>
+                
+                <% else %>
+                
                 <li>
                   <a class="fas fa-home nav-link text-light" href="/"> Home</a>
                 </li>
@@ -37,13 +55,14 @@
                 <li>
                   <a class="fas fa-sign-in-alt nav-link text-light" href="/users/sign_in"> login</a>
                 </li>
+                
+                <% end %>
+                
               </ul>
             </div>
           </div>
         </nav>
       </header>
-      
-    <% else %>
     
       <li>
         <%= link_to "新規投稿", new_user_registration_path %>
@@ -51,8 +70,6 @@
       <li>
         <%= link_to "ログイン", new_user_session_path %>
       </li>
-      
-    <% end %>
     
     <%= yield %>
   </body>
