@@ -1,5 +1,12 @@
 <h2>User info</h2>
 
+<%= attachment_image_tag book, :image, :fill, 100, 100, format: 'jpeg' %>
+
+<%= @user.each do |user| %>
+  <%= user.name %>
+  <%= user.introduction %>
+<% end %>
+
 <h2>New book</h2>
 
 <%= form_with model: @book, url:'/books', local:true do |f| %>

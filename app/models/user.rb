@@ -4,6 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
-         has_many :s, dependent: :destroy
+         has_many :books, dependent: :destroy
          
+  def show
+    @user = User.find(params[:id])
+  end
+  
 end
