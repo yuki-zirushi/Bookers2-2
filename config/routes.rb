@@ -5,6 +5,5 @@ Rails.application.routes.draw do
   get 'homes/about' => 'homes/about'
   resources :books
   resources :users
-  resources :post_images, only: [:create]
   
 end
