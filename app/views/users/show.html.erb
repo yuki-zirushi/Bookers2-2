@@ -1,24 +1,45 @@
-<h2>User info</h2>
+<main>
+  <p id="notice"></p>
+  <div class="container px-5 px-sm-0">
+    <div class="row">
+      <div class="col-md-3">
+        
+        <h2>User info</h2>
 
-<%= attachment_image_tag book, :image, :fill, 100, 100, format: 'jpeg' %>
+          <%= attachment_image_tag @user, :image, :fill, 100, 100, format: 'jpeg' %>
+          <table class="table">
+            <tbody>
+              <tr>
+                <th>name</th>
+                <th><%= @user.name %></th>
+              </tr>
+              <tr>
+                <th>introduction</th>
+                <th><%= @user.introduction %></th>
+              </tr>
+            </tbody>
+          </table>
 
-<%= @user.each do |user| %>
-  <%= user.name %>
-  <%= user.introduction %>
-<% end %>
+          <div class="row">
+            <a class="btn btn-outline-secondary btn-block fas fa-user-cog edit_user_44251" href="/users/#{@user.id}/edit"></a>
+          </div>
 
-<h2>New book</h2>
+          <h2>New book</h2>
 
-<%= form_with model: @book, url:'/books', local:true do |f| %>
-  <div class="form-group">
-    <label for="book_title">Title</label>
-    <%= f.text_field :title %>
+          <%= form_with model: @book, url:'/books', local:true do |f| %>
+          <div class="form-group">
+            <label for="book_title">Title</label>
+            <%= f.text_field :title %>
+          </div>
+          <div class="form-group">
+            <label for="book_opinion">Opinion</label>
+            <%= f.text_area :opinion %>
+          </div>
+          <div class="form-group">
+            <%= f.submit 'Create Book' %>
+          </div>
+          <% end %>
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <label for="book_opinion">Opinion</label>
-    <%= f.text_area :opinion %>
-  </div>
-  <div class="form-group">
-    <%= f.submit 'Create Book' %>
-  </div>
-<% end %>
+</main>

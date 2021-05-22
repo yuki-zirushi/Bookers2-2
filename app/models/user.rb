@@ -5,7 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
          has_many :books, dependent: :destroy
-         
+  
+  attachment :image
   def show
     @user = User.find(params[:id])
   end
