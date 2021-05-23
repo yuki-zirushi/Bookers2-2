@@ -60,7 +60,7 @@
                 <%= attachment_image_tag @user, :image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpeg" %>
               </td>
               <td>
-                <%= link_to book.title, "#" %>
+                <%= link_to book.title, "/books/#{book.id}" %>
               </td>
               <td>
                 <%= book.body %>
