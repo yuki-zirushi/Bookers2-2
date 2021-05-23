@@ -7,8 +7,5 @@ class User < ApplicationRecord
          has_many :books, dependent: :destroy
   
   attachment :image
-  def show
-    @user = User.find(params[:id])
-  end
   
 end
