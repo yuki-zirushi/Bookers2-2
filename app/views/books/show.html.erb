@@ -7,7 +7,7 @@
 
         <h2>User info</h2>
 
-          <%= attachment_image_tag @user, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpeg" %>
+          <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpeg" %>
           <table class="table">
             <tbody>
               <tr>
@@ -48,9 +48,10 @@
           <tbody>
             <tr>
               <td>
-                <%= attachment_image_tag @user, :image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpeg" %>
-                <br>
-                <%= link_to @user.name, "/users/#{@user.id}" %>
+                <%= link_to user_path(@user.id) do %>
+                  <%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpeg", size: "40x40" %><br>
+                  <%= @user.name %>
+                <% end %>
               </td>
               <td><%= link_to @book.title, "/books/#{@book.id}" %></td>
               <td><%= @book.body %></td>
