@@ -57,7 +57,7 @@
           <tbody>
             <tr>
               <td>
-                <%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpeg" %>
+                <%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpeg", size: "40x40" %>
               </td>
               <td>
                 <%= link_to book.title, "/books/#{book.id}" %>
