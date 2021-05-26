@@ -63,7 +63,10 @@
     </header>
     
     <main>
-      <p id="notice"></p>
+      
+      <% flash.each do |key, value| %>
+        <%= content_tag(:p, value, id: "#{key}") %>
+      <% end %>
     
     <%= yield %>
     
