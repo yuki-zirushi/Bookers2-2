@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2021_05_23_085924) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
+    t.text "opinion"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
@@ -29,6 +30,7 @@ ActiveRecord::Schema.define(version: 2021_05_23_085924) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_id"
     t.text "introduction"
     t.string "profile_image_id"
     t.index ["email"], name: "index_users_on_email", unique: true
